@@ -1,26 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #f0f2f5;
-        }
-        h1 {
-            font-size: 3rem;
-            color: #333;
-        }
-    </style>
+    <title>Tomonee - Solusi Bisnis Digital</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>Hello World</h1>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Strategi Bisnis <span class="highlight-red">LARIS</span><br>
+                Walau <span class="highlight-bg-yellow">BARU</span> dengan<br>
+                Metode Ini!</h1>
+            <p class="text-center">Rahasia yang belum banyak diketahui...</p>
+        </header>
+
+        <!-- Video Placeholder -->
+        <div class="media-placeholder">
+            [VIDEO INTRODUCTION PLACEHOLDER]
+        </div>
+
+        <!-- Problem Section -->
+        <section>
+            <h3>Apakah Anda Mengalami Ini?</h3>
+            <ul class="checklist crosslist">
+                <li>Bingung mulai bisnis darimana</li>
+                <li>Sudah coba iklan tapi boncos terus</li>
+                <li>Omset stuck tidak naik-naik</li>
+                <li>Capek perang harga dengan kompetitor</li>
+            </ul>
+        </section>
+
+        <!-- Solution Section -->
+        <section>
+            <h3 class="text-center">Kabar Gembiranya...</h3>
+            <p class="text-center">Kini Ada Solusi Praktis untuk Anda!</p>
+
+            <div class="product-box">
+                <h2>E-COURSE</h2>
+                <h3 class="highlight-red">JAGO JUALAN ONLINE</h3>
+                <div class="media-placeholder" style="height: 200px;">
+                    [PRODUCT IMAGE PLACEHOLDER]
+                </div>
+                <p>Panduan lengkap membangun bisnis online dari nol sampai profit konsisten.</p>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section>
+            <h3>Apa yang akan Anda Dapatkan?</h3>
+            <ul class="checklist">
+                <li>Modul pembelajaran lengkap & mudah dipahami</li>
+                <li>Support grup tanya jawab seumur hidup</li>
+                <li>Template copywriting siap pakai</li>
+                <li>Database supplier terpercaya</li>
+                <li>Update materi gratis selamanya</li>
+            </ul>
+        </section>
+
+        <!-- Social Proof / Testimonials -->
+        <section>
+            <h3 class="text-center"><span class="highlight-bg-yellow">BUKTI NYATA</span> Member Kami</h3>
+
+            <div class="chat-screenshot">
+                <div class="media-placeholder" style="height: 300px;">[TESTIMONIAL 1 SCREENSHOT]</div>
+                <p class="text-center"><i>"Alhamdulillah closing bertubi-tubi..."</i></p>
+            </div>
+
+            <div class="chat-screenshot">
+                <div class="media-placeholder" style="height: 300px;">[TESTIMONIAL 2 SCREENSHOT]</div>
+                <p class="text-center"><i>"Awalnya ragu, eh ternyata daging semua isinya!"</i></p>
+            </div>
+
+            <div class="chat-screenshot">
+                <div class="media-placeholder" style="height: 300px;">[TESTIMONIAL 3 SCREENSHOT]</div>
+                <p class="text-center"><i>"Baru praktek 3 hari sudah balik modal"</i></p>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="margin: 40px 0;">
+            <h2 class="text-center">Tunggu Apa Lagi?</h2>
+            <p class="text-center">Ambil kesempatan ini sekarang sebelum pesaing Anda mendahului!</p>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <h1 style="text-decoration: line-through; color: #999;">Rp 1.000.000</h1>
+                <h1 class="highlight-red">Rp 199.000</h1>
+                <p
+                    style="background: var(--primary-yellow); display: inline-block; padding: 5px 10px; font-weight: bold;">
+                    DISKON SPESIAL HARI INI!</p>
+            </div>
+
+            <a href="#form-pemesanan" class="cta-button">AMBIL PROMO SEKARANG >></a>
+        </section>
+
+        <!-- Order Form -->
+        <section id="form-pemesanan" class="order-form">
+            <h3 class="text-center">Form Pemesanan</h3>
+            <form>
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda">
+                </div>
+
+                <div class="form-group">
+                    <label for="wa">No. WhatsApp</label>
+                    <input type="tel" id="wa" name="wa" placeholder="08xxxxxxxxxx">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Alamat Email</label>
+                    <input type="email" id="email" name="email" placeholder="email@contoh.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="kota">Kota Domisili</label>
+                    <input type="text" id="kota" name="kota" placeholder="Nama Kota">
+                </div>
+
+                <button type="submit" class="cta-button" style="margin-top: 20px;">KIRIM FORMULIR</button>
+            </form>
+        </section>
+
+        <!-- Guarantee -->
+        <div class="garansi-seal">
+            <div style="font-size: 3rem;">🛡️</div>
+            <h3>GARANSI 100% UANG KEMBALI</h3>
+            <p>Jika materi tidak terbukti menghasilkan dalam 30 hari.</p>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Tomonee Care. All rights reserved.</p>
+            <p>Privacy Policy | Terms of Service</p>
+        </footer>
+
+    </div>
+
 </body>
+
 </html>
