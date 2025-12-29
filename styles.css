@@ -239,3 +239,39 @@ footer {
     font-size: 0.85rem;
     color: var(--text-color);
 }
+
+/* Feature List (Product Details) */
+.features-list {
+    margin-top: 30px;
+}
+
+.feature-item {
+    background: #f9fdfa;
+    /* Very light green tint */
+    border: 1px solid #e0e8da;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    line-height: 1;
+}
+
+.feature-content h4 {
+    margin: 0 0 5px 0;
+    color: var(--primary-green);
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.feature-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
