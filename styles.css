@@ -157,3 +157,85 @@ footer {
     margin-top: 60px;
     padding-bottom: 40px;
 }
+
+/* --- CRO OPTIMIZATIONS --- */
+
+/* Product Mockup */
+.product-mockup {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    height: 300px;
+    /* Placeholder height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    /* Lift it up a bit */
+    color: #999;
+    font-style: italic;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-mockup::after {
+    content: "Product Screenshot / Dashboard View";
+    position: absolute;
+}
+
+/* Visual Steps */
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.step-card {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    background: #fff;
+    padding: 20px 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    background-color: var(--primary-green);
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 10px;
+    font-weight: bold;
+}
+
+/* Testimonials */
+.testimonial-section {
+    margin: 40px 0;
+}
+
+.testimonial-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-yellow);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.user-name {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--text-color);
+}
