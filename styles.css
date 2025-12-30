@@ -405,6 +405,20 @@ footer {
     align-items: center;
     margin: 0 auto 10px;
     font-weight: bold;
+    margin: 0 auto 10px;
+    font-weight: bold;
+}
+
+.bonus-badge {
+    background-color: var(--accent-yellow);
+    color: var(--text-color);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0 auto 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Testimonials */
