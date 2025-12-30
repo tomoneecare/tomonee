@@ -148,6 +148,12 @@ ul li::before {
 .validation-section {
     border-left: 4px solid var(--emotional-coral);
     padding-left: 20px;
+    background: #fff;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.06),
+        0 4px 8px rgba(0, 0, 0, 0.04),
+        0 8px 16px rgba(0, 0, 0, 0.03);
+    position: relative;
 }
 
 footer {
