@@ -274,24 +274,35 @@ footer {
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     background: #fff;
+    /* Remove fixed height or whitespace */
+    display: flex;
+    align-items: flex-start;
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
+    /* Ensure track fills container */
 }
 
 .carousel-slide {
     min-width: 100%;
     box-sizing: border-box;
+    display: flex;
+    /* Remove whitespace below inline-block images */
 }
 
 .carousel-slide img {
     width: 100%;
+    height: auto;
+    /* Maintain aspect ratio */
     display: block;
     border-radius: 0;
     /* Container has radius */
     margin: 0;
+    object-fit: cover;
+    /* Ensure it fills nicely if we enforce height, but auto is safer for matching first image */
 }
 
 .carousel-button {
