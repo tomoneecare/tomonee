@@ -15,8 +15,8 @@
 }
 
 body {
-    font-family: 'Georgia', 'Times New Roman', serif;
-    /* "Editorial, readable, calm" */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* System Sans-Serif for cleaner, less stiff look */
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
@@ -182,28 +182,43 @@ ul li::before {
     position: relative;
 }
 
+/* Validation Section Layout */
 .validation-wrapper {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
     gap: 30px;
 }
 
 .validation-text {
-    flex: 1 1 300px;
+    flex: 1;
 }
 
 .validation-image {
-    flex: 0 1 auto;
-    display: flex;
-    justify-content: center;
+    flex: 0 0 250px;
+    /* Fixed width for image container */
 }
 
 .validation-image img {
-    margin: 0;
     width: 100%;
-    max-width: 280px;
+    height: auto;
     border-radius: 8px;
+    mix-blend-mode: multiply;
+    /* Blend white background into beige */
+    display: block;
+    /* Remove bottom gap */
+}
+
+/* Clarity Section */
+.clarity-section {
+    background-color: #f2efe6;
+    /* Darker beige/sand color */
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Subtle border definition */
+    margin: 40px 0;
+    text-align: center;
 }
 
 /* Insight Note Box Component */
