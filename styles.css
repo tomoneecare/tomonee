@@ -150,6 +150,27 @@ ul li::before {
     margin: 10px 0;
 }
 
+.product-inclusions {
+    text-align: left;
+    margin: 20px auto;
+    padding: 0;
+    list-style: none;
+    max-width: 320px;
+    font-size: 0.95rem;
+}
+
+.product-inclusions li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.product-inclusions li span.check {
+    color: var(--primary-green);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
 .validation-section {
     border-left: 4px solid var(--emotional-coral);
     padding-left: 20px;
@@ -200,6 +221,21 @@ footer {
     color: #888;
     margin-top: 60px;
     padding-bottom: 40px;
+}
+
+/* Social Link (Instagram) */
+.social-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--primary-green);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--primary-green);
+    transition: opacity 0.3s;
+}
+
+.social-link:hover {
+    opacity: 0.8;
 }
 
 /* --- CRO OPTIMIZATIONS --- */
