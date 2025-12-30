@@ -161,6 +161,39 @@ ul li::before {
     position: relative;
 }
 
+/* Insight Note Box Component */
+.insight-note {
+    background-color: rgba(0, 0, 0, 0.03);
+    /* Subtle contrast from --bg-color */
+    border-left: 3px solid var(--primary-green);
+    padding: 16px 20px;
+    margin: 10px auto 30px;
+    text-align: left;
+    max-width: 90%;
+    /* Keep it focused */
+    border-radius: 0 4px 4px 0;
+    /* Soften the right corners only */
+}
+
+.insight-label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    color: #8c8c88;
+    /* Low contrast gray */
+    margin-bottom: 8px;
+    font-family: sans-serif;
+    /* Clean contrast to the serif body */
+}
+
+.insight-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--text-color);
+    font-weight: normal;
+}
+
 footer {
     text-align: center;
     font-size: 0.9rem;
