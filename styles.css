@@ -265,27 +265,88 @@ footer {
 /* --- CRO OPTIMIZATIONS --- */
 
 /* Product Mockup */
-.product-mockup {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    height: 300px;
-    /* Placeholder height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-    /* Lift it up a bit */
-    color: #999;
-    font-style: italic;
-    overflow: hidden;
+/* Carousel */
+.carousel {
     position: relative;
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background: #fff;
 }
 
-.product-mockup::after {
-    content: "Product Screenshot / Dashboard View";
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    width: 100%;
+    display: block;
+    border-radius: 0;
+    /* Container has radius */
+    margin: 0;
+}
+
+.carousel-button {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: var(--primary-green);
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.carousel-button:hover {
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.carousel-button.prev {
+    left: 15px;
+}
+
+.carousel-button.next {
+    right: 15px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: var(--primary-green);
+    transform: scale(1.2);
 }
 
 /* Visual Steps */
