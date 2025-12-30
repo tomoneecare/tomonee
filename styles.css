@@ -41,6 +41,9 @@ h3 {
 }
 
 h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    /* Bold to match logo */
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     letter-spacing: -0.5px;
     line-height: 1.2;
