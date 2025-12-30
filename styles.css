@@ -375,8 +375,8 @@ footer {
     height: 60px;
     background-image: url('assets/mascot-features-sprite.png');
     background-repeat: no-repeat;
-    background-size: 500% 100%;
-    /* 5 icons horizontal */
+    background-size: 500% auto;
+    /* Preserve aspect ratio, crop vertically */
     display: block;
 }
 
