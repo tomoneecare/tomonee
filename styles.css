@@ -182,6 +182,30 @@ ul li::before {
     position: relative;
 }
 
+.validation-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+}
+
+.validation-text {
+    flex: 1 1 300px;
+}
+
+.validation-image {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.validation-image img {
+    margin: 0;
+    width: 100%;
+    max-width: 280px;
+    border-radius: 8px;
+}
+
 /* Insight Note Box Component */
 .insight-note {
     background-color: rgba(0, 0, 0, 0.03);
