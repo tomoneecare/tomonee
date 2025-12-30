@@ -425,40 +425,17 @@ footer {
     font-size: 1.5rem;
     margin-right: 15px;
     line-height: 1;
-    min-width: 60px;
-    /* Reserve space */
+    min-width: 80px;
+    /* Slightly larger for the new images */
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.mascot-icon {
-    width: 60px;
-    height: 60px;
-    background-image: url('assets/mascot-features-sprite.png');
-    background-repeat: no-repeat;
-    background-size: 500% auto;
-    /* Preserve aspect ratio, crop vertically */
+.feature-icon img {
+    width: 80px;
+    height: auto;
     display: block;
-}
-
-.icon-rontgen {
-    background-position: 0% 0;
-}
-
-.icon-peta {
-    background-position: 25% 0;
-}
-
-.icon-radar {
-    background-position: 50% 0;
-}
-
-.icon-kalkulator {
-    background-position: 75% 0;
-}
-
-.icon-filter {
-    background-position: 100% 0;
 }
 
 .feature-content h4 {
