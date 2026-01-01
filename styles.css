@@ -209,6 +209,20 @@ ul li::before {
     /* Remove bottom gap */
 }
 
+@media (max-width: 768px) {
+    .validation-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .validation-image {
+        flex: auto;
+        width: 100%;
+        max-width: 300px; /* Prevent it from being too huge */
+        margin: 0 auto;
+    }
+}
+
 /* Clarity Section */
 .clarity-section {
     background-color: #f2efe6;
