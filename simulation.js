@@ -67,7 +67,7 @@ const Painkiller = () => {
             <p style="font-size: 0.95rem; margin-bottom: 20px; color: #555; font-family: 'Plus Jakarta Sans', sans-serif;">Wajar kok. Melihat angka asli memang kadang bikin deg-degan. Tapi setidaknya sekarang kamu tahu posisinya.</p>
             <button onClick=${() => document.getElementById('product').scrollIntoView({ behavior: 'smooth' })}
                 style="background: var(--primary-green); color: white; border: none; padding: 12px 24px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; font-family: 'Plus Jakarta Sans', sans-serif;">
-                Bantu saya rapikan ini &rarr;
+                Bantu saya rapikan ini →
             </button>
         </div>
     `;
