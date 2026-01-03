@@ -60,11 +60,25 @@ const CurrencyInput = ({ value, onChange, placeholder, ...props }) => {
     `;
 };
 
+const Painkiller = () => {
+    return html`
+        <div style="background: #fff8e1; border: 2px solid #FF8C00; padding: 20px; border-radius: 8px; margin-top: 30px; text-align: center;">
+            <p style="margin-bottom: 15px; font-weight: bold; color: #d4a72c; font-family: 'Plus Jakarta Sans', sans-serif;">Merasa kewalahan dengan angkanya?</p>
+            <p style="font-size: 0.95rem; margin-bottom: 20px; color: #555; font-family: 'Plus Jakarta Sans', sans-serif;">Wajar kok. Melihat angka asli memang kadang bikin deg-degan. Tapi setidaknya sekarang kamu tahu posisinya.</p>
+            <button onClick=${() => document.getElementById('product').scrollIntoView({ behavior: 'smooth' })}
+                style="background: var(--primary-green); color: white; border: none; padding: 12px 24px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; font-family: 'Plus Jakarta Sans', sans-serif;">
+                Bantu saya rapikan ini &rarr;
+            </button>
+        </div>
+    `;
+};
+
 const CerminFinansial = () => {
     const [income, setIncome] = useState(0);
     const [obligations, setObligations] = useState(0);
     const [expenses, setExpenses] = useState(0);
     const [savings, setSavings] = useState(0);
+    const [showResult, setShowResult] = useState(false);
 
     const burnRate = obligations + expenses;
     const monthlyBalance = income - burnRate;
@@ -128,27 +142,30 @@ const CerminFinansial = () => {
                 </div>
             </div>
 
-            <button class="lite-action-btn" onClick=${() => window.dispatchEvent(new CustomEvent('simulation-complete'))}>Lihat Realita</button>
+            <button class="lite-action-btn" onClick=${() => setShowResult(true)}>Lihat Realita</button>
 
             <!-- Results Section (conditionally hidden or just shown below) -->
-            <div class="sim-results" style="margin-top: 30px;">
-                <div class="result-item">
-                    <span class="result-label">Napas Darurat</span>
-                    <span class="result-value text-xl">${survivalDays} Hari</span>
-                    <span class="result-sub">Jika pendapatan stop hari ini.</span>
+            ${showResult && html`
+                <div class="sim-results" style="margin-top: 30px;">
+                    <div class="result-item">
+                        <span class="result-label">Napas Darurat</span>
+                        <span class="result-value text-xl">${survivalDays} Hari</span>
+                        <span class="result-sub">Jika pendapatan stop hari ini.</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Status Bulanan</span>
+                        <span class="result-value text-xl" style=${{ color: isDeficit ? 'var(--accent-brown)' : 'var(--primary-green)' }}>
+                            ${monthlyBalance >= 0 ? 'Surplus' : 'Defisit'}
+                        </span>
+                        <span class="result-sub">${formatCurrency(monthlyBalance)} / bulan</span>
+                    </div>
                 </div>
-                <div class="result-item">
-                    <span class="result-label">Status Bulanan</span>
-                    <span class="result-value text-xl" style=${{ color: isDeficit ? 'var(--accent-brown)' : 'var(--primary-green)' }}>
-                        ${monthlyBalance >= 0 ? 'Surplus' : 'Defisit'}
-                    </span>
-                    <span class="result-sub">${formatCurrency(monthlyBalance)} / bulan</span>
-                </div>
-            </div>
-             ${isDeficit && html`
-                <div class="sim-alert">
-                    ⚠️ <strong>Peringatan Defisit:</strong> Tabunganmu akan habis dalam ${runwayText} jika pola ini berlanjut.
-                </div>
+                 ${isDeficit && html`
+                    <div class="sim-alert">
+                        ⚠️ <strong>Peringatan Defisit:</strong> Tabunganmu akan habis dalam ${runwayText} jika pola ini berlanjut.
+                    </div>
+                `}
+                <${Painkiller} />
             `}
         </div>
     `;
@@ -159,6 +176,7 @@ const KapanLunas = () => {
     const [interestRate, setInterestRate] = useState(0); // Annual %
     const [payment, setPayment] = useState(0);
     const [income, setIncome] = useState(0);
+    const [showResult, setShowResult] = useState(false);
 
     const monthlyInterestRate = (interestRate / 100) / 12;
     const minPayment = debt * monthlyInterestRate;
@@ -227,24 +245,27 @@ const KapanLunas = () => {
                 </div>
              </div>
 
-             <button class="lite-action-btn" onClick=${() => window.dispatchEvent(new CustomEvent('simulation-complete'))}>Hitung Estimasi</button>
+             <button class="lite-action-btn" onClick=${() => setShowResult(true)}>Hitung Estimasi</button>
 
-             <div class="sim-results" style="margin-top: 30px;">
-                 <div class="result-item">
-                     <span class="result-label">Estimasi Lunas</span>
-                     <span class="result-value text-xl">
-                        ${isTrap ? '\u221E (Tidak akan lunas)' : (monthsToPayoff === Infinity || isNaN(monthsToPayoff)) ? '-' : `${Math.ceil(monthsToPayoff)} Bulan`}
-                     </span>
-                     <span className="result-sub">
-                        ${isTrap ? 'Pembayaran < Bunga Bulanan' : 'Asumsi bunga tetap'}
-                     </span>
-                 </div>
-                 <div class="result-item">
-                     <span class="result-label">Rasio Beban</span>
-                     <span class="result-value text-xl" style=${{ color: stressColor }}>${stressLabel}</span>
-                     <span className="result-sub">${stressRatio.toFixed(1)}% dari income</span>
-                 </div>
-             </div>
+             ${showResult && html`
+                <div class="sim-results" style="margin-top: 30px;">
+                    <div class="result-item">
+                        <span class="result-label">Estimasi Lunas</span>
+                        <span class="result-value text-xl">
+                            ${isTrap ? '\u221E (Tidak akan lunas)' : (monthsToPayoff === Infinity || isNaN(monthsToPayoff)) ? '-' : `${Math.ceil(monthsToPayoff)} Bulan`}
+                        </span>
+                        <span className="result-sub">
+                            ${isTrap ? 'Pembayaran < Bunga Bulanan' : 'Asumsi bunga tetap'}
+                        </span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Rasio Beban</span>
+                        <span class="result-value text-xl" style=${{ color: stressColor }}>${stressLabel}</span>
+                        <span className="result-sub">${stressRatio.toFixed(1)}% dari income</span>
+                    </div>
+                </div>
+                <${Painkiller} />
+             `}
         </div>
     `;
 };
