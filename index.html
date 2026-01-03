@@ -17,7 +17,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -40,7 +40,8 @@
     <!-- Google Fonts: Fraunces -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
         rel="stylesheet">
 
     <!-- SEO Meta Tags -->
@@ -122,7 +123,7 @@
             <aside class="insight-note">
                 <span class="insight-label">INSIGHT</span>
                 <p class="insight-text">Banyak orang baru sadar: dengan urutan bayar yang tepat, total pembayaran bisa
-                    berkurang puluhan hingga ratusan juta — tanpa menambah utang baru.</p>
+                    berkurang puluhan hingga ratusan juta &mdash; tanpa menambah utang baru.</p>
             </aside>
 
             <!-- Sad Mascot Image -->
@@ -138,7 +139,7 @@
                 <div class="validation-text">
                     <h2>Yang capek itu kepala.<br>Bukan dompet.</h2>
                     <p>Banyak orang terlihat baik-baik saja.<br>Padahal setiap bulan hanya bertahan.</p>
-                    <p>Bukan karena kurang usaha —<br>tetapi karena harus mengambil keputusan terus-menerus tanpa
+                    <p>Bukan karena kurang usaha &mdash;<br>tetapi karena harus mengambil keputusan terus-menerus tanpa
                         gambaran yang jelas.</p>
                 </div>
                 <div class="validation-image">
@@ -149,11 +150,14 @@
 
         <!-- CLARITY SECTION -->
         <section class="clarity-section">
-            <h2 class="text-center">Bayar minimum ≠ aman.</h2>
+            <h2 class="text-center">Bayar minimum &ne; aman.</h2>
             <p>Bayar minimum memang memberi rasa tenang sesaat.<br>Namun sering kali, utang tidak benar-benar berkurang.
             </p>
-            <p>Bukan karena boros —<br>melainkan karena polanya tidak terlihat dengan jelas.</p>
+            <p>Bukan karena boros &mdash;<br>melainkan karena polanya tidak terlihat dengan jelas.</p>
         </section>
+
+        <!-- FINANCIAL SIMULATION TOOL -->
+        <div id="financial-simulation-root"></div>
 
         <!-- SOLUTION SECTION -->
         <section class="card">
@@ -221,7 +225,7 @@
                         </div>
                         <div class="feature-content">
                             <h4>Filter Keputusan</h4>
-                            <p>Membantu menilai apakah menutup utang dengan utang lain masih layak — atau justru
+                            <p>Membantu menilai apakah menutup utang dengan utang lain masih layak &mdash; atau justru
                                 berisiko.</p>
                         </div>
                     </div>
@@ -237,8 +241,8 @@
                     <div class="carousel-slide"><img src="assets/carousel-3.jpg" alt="Tomonee Features"></div>
                 </div>
                 <!-- Controls -->
-                <button class="carousel-button prev" onclick="moveSlide(-1)">❮</button>
-                <button class="carousel-button next" onclick="moveSlide(1)">❯</button>
+                <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
                 <!-- Dots -->
                 <div class="carousel-dots">
                     <div class="dot active" onclick="setSlide(0)"></div>
@@ -361,13 +365,13 @@
             <div class="testimonial-card">
                 "Akhirnya kebaca semua. Awalnya takut, tapi setelah lihat angka aslinya, malah jadi lebih tenang
                 mengambil keputusan."
-                <span class="user-name">— Sarah, Karyawan Swasta</span>
+                <span class="user-name">&mdash; Sarah, Karyawan Swasta</span>
             </div>
 
             <div class="testimonial-card">
                 "Bukan langsung lunas, tapi setidaknya sekarang saya tahu harus ngapain bulan depan. Tidak meraba-raba
                 lagi."
-                <span class="user-name">— Budi, Freelancer</span>
+                <span class="user-name">&mdash; Budi, Freelancer</span>
             </div>
 
 
@@ -387,10 +391,10 @@
             <p>Sekali bayar. Digunakan selamanya.</p>
 
             <ul class="product-inclusions">
-                <li><span class="check">✓</span> Template Cek Keuangan (Google Sheets)</li>
-                <li><span class="check">✓</span> BONUS: Akses Grup Komunitas Telegram (Update produk digital dari
+                <li><span class="check">&#10003;</span> Template Cek Keuangan (Google Sheets)</li>
+                <li><span class="check">&#10003;</span> BONUS: Akses Grup Komunitas Telegram (Update produk digital dari
                     Tomonee)</li>
-                <li><span class="check">✓</span> BONUS: Tomonee Care GPT (Asisten AI)</li>
+                <li><span class="check">&#10003;</span> BONUS: Tomonee Care GPT (Asisten AI)</li>
             </ul>
 
             <a href="https://lynk.id/tomonee/m4ow09rw58oy" class="cta-button">Mulai Rapikan Sekarang</a>
@@ -411,6 +415,7 @@
 
     </div>
 
+    <script type="module" src="simulation.js"></script>
 </body>
 
 </html>
