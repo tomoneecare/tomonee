@@ -126,6 +126,15 @@
                     berkurang puluhan hingga ratusan juta &mdash; tanpa menambah utang baru.</p>
             </aside>
 
+            <!-- Check Financial Button -->
+            <div style="text-align: center; margin-bottom: 30px;">
+                <button
+                    onclick="document.getElementById('financial-simulation-root').scrollIntoView({behavior: 'smooth'})"
+                    style="background: #fff; border: 2px solid #FF8C00; color: #FF8C00; padding: 15px 25px; font-size: 1.1rem; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; max-width: 100%; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif;">
+                    Cek kondisi keuangan kamu sekarang
+                </button>
+            </div>
+
             <!-- Sad Mascot Image -->
             <img src="assets/mascot-comfort.jpg" alt="Mascot Comforting"
                 style="width: 100%; max-width: 100%; box-sizing: border-box; margin: 10px 0;">
@@ -148,19 +157,26 @@
             </div>
         </section>
 
-        <!-- CLARITY SECTION -->
-        <section class="clarity-section">
-            <h2 class="text-center">Bayar minimum &ne; aman.</h2>
-            <p>Bayar minimum memang memberi rasa tenang sesaat.<br>Namun sering kali, utang tidak benar-benar berkurang.
-            </p>
-            <p>Bukan karena boros &mdash;<br>melainkan karena polanya tidak terlihat dengan jelas.</p>
-        </section>
+
 
         <!-- FINANCIAL SIMULATION TOOL -->
         <div id="financial-simulation-root"></div>
 
         <!-- SOLUTION SECTION -->
         <section class="card">
+
+            <!-- Painkiller / Bridge Copy (Hidden initially) -->
+            <div id="painkiller-bridge"
+                style="display: none; background: #fff8e1; border: 1px solid #ffe082; padding: 20px; border-radius: 8px; margin-bottom: 30px; text-align: center;">
+                <p style="margin-bottom: 15px; font-weight: bold; color: #d4a72c;">Merasa kewalahan dengan angkanya?</p>
+                <p style="font-size: 0.95rem; margin-bottom: 20px;">Wajar kok. Melihat angka asli memang kadang bikin
+                    deg-degan. Tapi setidaknya sekarang kamu tahu posisinya.</p>
+                <button onclick="document.getElementById('product').scrollIntoView({behavior: 'smooth'})"
+                    style="background: var(--primary-green); color: white; border: none; padding: 12px 24px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem;">
+                    Bantu saya rapikan ini &rarr;
+                </button>
+            </div>
+
             <h2>Tomonee bantu lo lihat gambarnya utuh.</h2>
             <ul>
                 <li>Semua utang kebaca di satu tempat</li>
@@ -294,6 +310,14 @@
                 setInterval(() => {
                     moveSlide(1);
                 }, 5000);
+
+                // Listen for simulation complete event
+                window.addEventListener('simulation-complete', () => {
+                    const painkiller = document.getElementById('painkiller-bridge');
+                    if (painkiller) {
+                        painkiller.style.display = 'block';
+                    }
+                });
             </script>
             <p class="text-center" style="font-size: 0.9rem; color: #666;">*Tampilan Dashboard Tomonee</p>
         </section>
@@ -308,6 +332,9 @@
                         style="width: 100%; max-width: 120px; margin: 0 auto 15px; display: block;">
                     <p><strong>Masukkan angka</strong></p>
                     <p style="font-size: 0.85rem;">Catat seluruh utang secara jujur.</p>
+                    <p style="font-size: 0.75rem; color: var(--primary-green); margin-top: 6px;">
+                        (Bisa pakai AI Tomonee: Foto jadi Data)
+                    </p>
                 </div>
                 <div class="step-card">
                     <div class="step-number">2</div>

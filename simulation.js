@@ -128,7 +128,7 @@ const CerminFinansial = () => {
                 </div>
             </div>
 
-            <button class="lite-action-btn">Lihat Realita</button>
+            <button class="lite-action-btn" onClick=${() => window.dispatchEvent(new CustomEvent('simulation-complete'))}>Lihat Realita</button>
 
             <!-- Results Section (conditionally hidden or just shown below) -->
             <div class="sim-results" style="margin-top: 30px;">
@@ -227,7 +227,7 @@ const KapanLunas = () => {
                 </div>
              </div>
 
-             <button class="lite-action-btn">Hitung Estimasi</button>
+             <button class="lite-action-btn" onClick=${() => window.dispatchEvent(new CustomEvent('simulation-complete'))}>Hitung Estimasi</button>
 
              <div class="sim-results" style="margin-top: 30px;">
                  <div class="result-item">
