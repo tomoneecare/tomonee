@@ -285,13 +285,15 @@ const SimulationApp = () => {
                     class="tab-btn ${activeTab === 'cermin' ? 'active' : ''}" 
                     onClick=${() => setActiveTab('cermin')}
                 >
-                    Cermin
+                    <span>Cermin</span>
+                    <span class="tab-desc">Ketahanan & cadangan saat ini</span>
                 </button>
                 <button 
                     class="tab-btn ${activeTab === 'lunas' ? 'active' : ''}" 
                     onClick=${() => setActiveTab('lunas')}
                 >
-                    Kapan Lunas?
+                    <span>Kapan Lunas?</span>
+                    <span class="tab-desc">Timeline berdasarkan kondisi sekarang</span>
                 </button>
             </div>
 
