@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomonee Bonus Feature - Financial Mirror</title>
+
+    <!-- SEO Blocking -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Top Bar -->
+        <nav class="top-bar">
+            <a href="../index.html" class="back-link">← Kembali ke Tomonee</a>
+            <div class="chip">Tomonee Bonus Feature</div>
+        </nav>
+
+        <!-- Header -->
+        <header class="header">
+            <h1 class="header-title">Financial Mirror</h1>
+            <p class="header-subtitle">Alat bantu hitung tanpa menghakimi.<br>Jaga kesehatan finansialmu.</p>
+        </header>
+
+
+        <!-- Module Toggle -->
+        <div class="toggle-container">
+            <button class="toggle-btn active" data-module="cek-pinjol">
+                <span class="toggle-icon">📊</span>
+                Cek Pinjol
+            </button>
+            <button class="toggle-btn" data-module="lunas-cepat">
+                <span class="toggle-icon">🎯</span>
+                Lunas Cepat
+            </button>
+        </div>
+
+        <!-- Module 1: Cek Pinjol -->
+        <section id="cek-pinjol" class="module active">
+            <div class="card">
+                <h2 class="card-title">Pinjaman Baru yang Dipertimbangkan</h2>
+                <p class="card-desc">Masukkan detail pinjaman yang sedang kamu pertimbangkan.</p>
+
+                <div class="input-group">
+                    <label class="input-label">Nominal Cair (yang kamu terima)</label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">Rp</span>
+                        <input type="text" id="nominal-cair" class="input-field" placeholder="5.000.000"
+                            inputmode="numeric">
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label">Cicilan per Bulan</label>
+                        <div class="input-wrapper">
+                            <span class="input-prefix">Rp</span>
+                            <input type="text" id="cicilan-baru" class="input-field" placeholder="625.000"
+                                inputmode="numeric">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Tenor</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="tenor-baru" class="input-field" placeholder="12" min="1">
+                            <span class="input-suffix">bulan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Cicilan yang Sudah Berjalan</h2>
+                <p class="card-desc">Tambahkan cicilan yang saat ini masih kamu tanggung.</p>
+
+                <div id="cicilan-list">
+                    <!-- Dynamic debt items will be added here -->
+                </div>
+
+                <button id="add-cicilan" class="add-btn">
+                    <span>+</span> Tambah Cicilan
+                </button>
+            </div>
+
+            <button id="hitung-pinjol" class="calculate-btn">
+                Lihat Realita
+            </button>
+
+            <!-- Results -->
+            <div id="result-pinjol" class="result-card hidden">
+                <h2 class="result-title">Realita Keuanganmu</h2>
+
+                <div class="result-section">
+                    <h3 class="result-label">Harga Sebenarnya Pinjaman Baru</h3>
+                    <div class="result-highlight">
+                        <span class="result-value" id="harga-sebenarnya">150%</span>
+                        <span class="result-note">dari uang yang kamu terima</span>
+                    </div>
+                    <p class="result-detail" id="detail-pinjaman"></p>
+                </div>
+
+                <div class="result-divider"></div>
+
+                <div class="result-section">
+                    <h3 class="result-label">Beban Napas Bulanan</h3>
+                    <div class="result-compare">
+                        <div class="compare-item">
+                            <span class="compare-label">Saat ini</span>
+                            <span class="compare-value" id="beban-sekarang">Rp 0</span>
+                        </div>
+                        <div class="compare-arrow">→</div>
+                        <div class="compare-item">
+                            <span class="compare-label">Jika ambil pinjaman baru</span>
+                            <span class="compare-value warning" id="beban-baru">Rp 0</span>
+                        </div>
+                    </div>
+                    <p class="result-insight" id="insight-beban"></p>
+                </div>
+
+                <div class="result-divider"></div>
+
+                <div class="result-section">
+                    <h3 class="result-label">Total Uang yang Akan Keluar</h3>
+                    <p class="result-detail" id="total-keluar"></p>
+                </div>
+
+                <button class="copy-btn" id="copy-pinjol">
+                    📋 Salin Realita
+                </button>
+            </div>
+        </section>
+
+        <!-- Module 2: Lunas Cepat -->
+        <section id="lunas-cepat" class="module">
+            <div class="card">
+                <h2 class="card-title">Detail Hutang</h2>
+                <p class="card-desc">Masukkan informasi hutang yang ingin kamu lunasi lebih cepat.</p>
+
+                <div class="input-group">
+                    <label class="input-label">Sisa Pokok Hutang</label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">Rp</span>
+                        <input type="text" id="pokok-sisa" class="input-field" placeholder="10.000.000"
+                            inputmode="numeric">
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label">Bunga</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="bunga-rate" class="input-field" placeholder="0.5" step="0.01"
+                                min="0">
+                            <span class="input-suffix">%</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Tipe Bunga</label>
+                        <select id="tipe-bunga" class="input-field select-field">
+                            <option value="daily">Per Hari</option>
+                            <option value="monthly">Per Bulan</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label class="input-label">Sisa Tenor</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="sisa-tenor" class="input-field" placeholder="90" min="1">
+                            <span class="input-suffix">hari</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label">Target Lunas</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="target-lunas" class="input-field" placeholder="30" min="1">
+                            <span class="input-suffix">hari</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="hitung-lunas" class="calculate-btn">
+                Hitung Penghematan
+            </button>
+
+            <!-- Results -->
+            <div id="result-lunas" class="result-card hidden">
+                <h2 class="result-title">Potensi Penghematanmu</h2>
+
+                <div class="result-section">
+                    <div class="compare-scenarios">
+                        <div class="scenario">
+                            <span class="scenario-label">Kalau bayar sesuai jadwal</span>
+                            <span class="scenario-days" id="jadwal-hari">90 hari lagi</span>
+                            <span class="scenario-value muted" id="total-jadwal">Rp 0</span>
+                        </div>
+                        <div class="scenario highlight">
+                            <span class="scenario-label">Kalau lunas di hari ke-</span>
+                            <span class="scenario-days" id="target-hari">30</span>
+                            <span class="scenario-value" id="total-cepat">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="savings-box">
+                    <span class="savings-label">Uang yang kamu selamatkan</span>
+                    <span class="savings-value" id="penghematan">Rp 0</span>
+                    <span class="savings-note">Ini bukan uang "hilang" — ini uang yang tetap jadi milikmu.</span>
+                </div>
+
+                <button class="copy-btn" id="copy-lunas">
+                    📋 Salin Realita
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Dibuat dengan 💚 oleh <a href="../index.html">Tomonee</a></p>
+            <p class="footer-note">Alat ini hanya untuk simulasi. Selalu periksa dengan pemberi pinjaman untuk angka
+                yang akurat.</p>
+        </footer>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+
+</html>

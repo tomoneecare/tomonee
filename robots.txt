@@ -1,4 +1,74 @@
+# ===========================================
+# TOMONEE ROBOTS.TXT
+# ===========================================
+
+# Default rules for all crawlers
 User-agent: *
 Allow: /
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
 
+# ===========================================
+# BLOCK AI CRAWLERS / LLM TRAINING BOTS
+# ===========================================
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+# Google AI (Gemini/Bard)
+User-agent: Google-Extended
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+# Anthropic (Claude)
+User-agent: anthropic-ai
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+User-agent: Claude-Web
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+# Perplexity AI
+User-agent: PerplexityBot
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+# Common Crawl (used by many AI)
+User-agent: CCBot
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+# Cohere AI
+User-agent: cohere-ai
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+# Meta AI
+User-agent: FacebookBot
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+User-agent: Meta-ExternalAgent
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+# Apple (Siri/Spotlight)
+User-agent: Applebot-Extended
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+# ByteDance
+User-agent: Bytespider
+Disallow: /bonus-calculator/
+Disallow: /mini-courses/
+
+# ===========================================
+# SITEMAP
+# ===========================================
 Sitemap: https://tomonee.com/sitemap.xml
