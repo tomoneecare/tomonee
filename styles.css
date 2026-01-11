@@ -992,24 +992,50 @@ html {
     background: #757571;
 }
 
-/* Responsive Grid */
+/* Responsive Horizontal Slider (Mobile/Tablet) */
 @media (max-width: 1024px) {
     .pricing-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding-bottom: 20px;
+        /* Space for scrollbar */
+        padding-left: 20px;
+        /* Start padding */
+        padding-right: 20px;
+        /* End padding */
+        margin-left: -20px;
+        /* Offset container padding */
+        margin-right: -20px;
+
+        /* Hide scrollbar */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        /* Reset grid props */
+        grid-template-columns: none;
+    }
+
+    .pricing-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pricing-card {
+        flex: 0 0 280px;
+        /* Fixed width */
+        scroll-snap-align: center;
+        margin: 0;
+        min-width: 280px;
     }
 
     .pricing-card.featured {
         transform: none;
+        /* Reset distinct transform */
     }
 
+    /* Ensure no vertical margin collapse weirdness */
     .pricing-card.featured:hover {
-        transform: translateY(-5px);
-    }
-}
-
-@media (max-width: 600px) {
-    .pricing-grid {
-        grid-template-columns: 1fr;
+        transform: none;
     }
 }
