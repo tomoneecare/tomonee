@@ -529,6 +529,36 @@
     </div>
 
     <script type="module" src="simulation.js"></script>
+
+    <script>
+        // Auto-center the Featured Pricing Card on Mobile (Horizontal Scroll)
+        window.addEventListener('load', function () {
+            if (window.matchMedia("(max-width: 1024px)").matches) {
+                const grid = document.querySelector('.pricing-grid');
+                const featured = document.querySelector('.pricing-card.featured');
+
+                if (grid && featured) {
+                    // Use getBoundingClientRect for accurate relative positioning
+                    const gridRect = grid.getBoundingClientRect();
+                    const cardRect = featured.getBoundingClientRect();
+
+                    // Current position of card relative to grid viewport left edge
+                    const relativeCardLeft = cardRect.left - gridRect.left;
+
+                    // The target position we want for the card's left edge:
+                    // (GridWidth / 2) - (CardWidth / 2)
+                    const targetRelativeLeft = (grid.offsetWidth - featured.offsetWidth) / 2;
+
+                    const scrollDelta = relativeCardLeft - targetRelativeLeft;
+
+                    grid.scrollBy({
+                        left: scrollDelta,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

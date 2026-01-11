@@ -999,14 +999,12 @@ html {
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 20px;
+        /* Added top padding for badges */
+        padding-top: 30px;
         padding-bottom: 20px;
-        /* Space for scrollbar */
         padding-left: 20px;
-        /* Start padding */
         padding-right: 20px;
-        /* End padding */
         margin-left: -20px;
-        /* Offset container padding */
         margin-right: -20px;
 
         /* Hide scrollbar */
@@ -1015,6 +1013,7 @@ html {
 
         /* Reset grid props */
         grid-template-columns: none;
+        align-items: flex-start;
     }
 
     .pricing-grid::-webkit-scrollbar {
@@ -1027,11 +1026,17 @@ html {
         scroll-snap-align: center;
         margin: 0;
         min-width: 280px;
+        position: relative;
+        overflow: visible;
+        /* Allow badges to stick out */
     }
 
     .pricing-card.featured {
         transform: none;
         /* Reset distinct transform */
+        z-index: 5;
+        /* Stack above others */
+        box-shadow: 0 4px 15px rgba(107, 127, 62, 0.15);
     }
 
     /* Ensure no vertical margin collapse weirdness */
