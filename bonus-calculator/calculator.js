@@ -73,6 +73,26 @@ document.querySelectorAll('.toggle-btn').forEach(btn => {
     });
 });
 
+// Handle URL hash on page load (for direct links like #cek-pinjol or #lunas-cepat)
+function handleHash() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'cek-pinjol' || hash === 'lunas-cepat') {
+        // Update buttons
+        document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        const targetBtn = document.querySelector(`.toggle-btn[data-module="${hash}"]`);
+        if (targetBtn) targetBtn.classList.add('active');
+
+        // Update modules
+        document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+        const targetModule = document.getElementById(hash);
+        if (targetModule) targetModule.classList.add('active');
+    }
+}
+
+// Run on load and hash change
+window.addEventListener('load', handleHash);
+window.addEventListener('hashchange', handleHash);
+
 // =============================================
 // INPUT FORMATTING
 // =============================================
